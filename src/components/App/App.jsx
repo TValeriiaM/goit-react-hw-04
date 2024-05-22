@@ -19,11 +19,12 @@ export default function App() {
     async function fetchImages() {
       try {
         setLoader(true);
+        setError(false);
       const fetchedImages = await getImage(queryImg, currentPage);
       
-      setImages(fetchedImages);
+      setImages((prevState) => [...prevState, ...fetchedImages]);
       } catch {
-        setError(true)
+        setError(true);
       } finally {
         setLoader(false);
       }
