@@ -15,10 +15,11 @@ export default function App() {
 
 
   useEffect(() => {
+    if (!queryImg) return;
     async function fetchImages() {
       try {
         setLoader(true);
-      const fetchedImages = await getImage();
+      const fetchedImages = await getImage(queryImg, currentPage);
       
       setImages(fetchedImages);
       } catch {
@@ -34,15 +35,15 @@ export default function App() {
     setImages([]);
     setQuery(word);
     setPage(1);
-    
   };
 
   return (
     <>
-      <SearchBar onSearch={searchImages} />
-      {isError && <ErrorMessage/>}
-      {images.length > 0 && <ImageGallery images={images} />}
+      <SearchBar onSubmit={searchImages} />
+      {isError && <ErrorMessage />}
       {isLoader && <Loader />}
+      {images.length !== 0 && <ImageGallery images={images} />}
+      
     </>
   )
 }
