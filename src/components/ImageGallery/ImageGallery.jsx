@@ -1,7 +1,7 @@
 import css from "./ImageGallery.module.css"
-import { ImageCard } from "../ImageCard/ImageCard"
+import ImageCard from "../ImageCard/ImageCard"
 
-export function ImageGallery({ images }) {
+export default function ImageGallery({ images }) {
     return (
      <ul className={css.galleryList}>
             {images.map(image => (

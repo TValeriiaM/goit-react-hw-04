@@ -1,20 +1,52 @@
-import { Formik, Form, Field } from 'formik';
-// import toast from 'react-hot-toast';
 import css from "./SearchBar.module.css"
+import toast, { Toaster } from 'react-hot-toast';
+import { IoIosSearch } from "react-icons/io";
 
-export default function SearchForm({ onSubmit }) {
+
+export default function SearchBar({ onSubmit }) {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    const form = evt.target;
+    const keyWord = form.elements.keyWord.value;
+
+    if (keyWord.trim() === "") {
+      toast("Enter some text to find images");
+      return;
+    }
+
+    onSubmit(keyWord);
+    form.reset();
+  };
+
   return (
-    <Formik
-      initialValues={{ query: "" }}
-      onSubmit={(values, actions) => {
-        onSubmit(values.query);
-        actions.resetForm();
-      }}
-    >
-      <Form className={css.form}>
-        <Field className={css.input} type="text" name="query" />
-        <button type="submit">Search</button>
-      </Form>
-    </Formik>
+    <header className={css.searchHeader}>
+      <form className={css.searchForm} onSubmit={handleSubmit}>
+        <button className={css.searchButton} type="submit">
+          <IoIosSearch size={18}/>
+        </button>
+        <input
+          className={css.searchInput}
+          type="text"
+          name="keyWord"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+        />
+        
+        <Toaster 
+        position="top-left" 
+        toastOptions={
+            {
+                style: {
+                    color: 'darkviolet',
+                    backgroundColor: 'lightgray',
+                    borderRadius: '8px',
+                },
+                duration: 2000,
+            }
+      }
+        />
+      </form>
+    </header>
   );
 }
