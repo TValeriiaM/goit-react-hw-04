@@ -1,50 +1,22 @@
 
-// import Modal from 'react-modal';
+import Modal from 'react-modal';
+import css from "./ImageModal.module.css"
 
-// const customStyles = {
-//   content: {
-//     top: '50%',
-//     left: '50%',
-//     right: 'auto',
-//     bottom: 'auto',
-//     marginRight: '-50%',
-//     transform: 'translate(-50%, -50%)',
-//   },
-// };
-
-// // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-// Modal.setAppElement('#yourAppElement');
-
-//  function afterOpenModal() {
-//     // references are now sync'd and can be accessed.
-//     subtitle.style.color = '#f00';
-//   }
+Modal.setAppElement('#root');
   
-// export function ImageModal({ openModal, closeModal }) {
-//    return (
-//     <div>
-//       <button onClick={openModal}>Open Modal</button>
-//       <Modal
-//         isOpen={modalIsOpen}
-//         onAfterOpen={afterOpenModal}
-//         onRequestClose={closeModal}
-//         style={customStyles}
-//         contentLabel="Example Modal"
-//       >
-//         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-//         <button onClick={closeModal}>close</button>
-//         <div>I am a modal</div>
-//         <form>
-//           <input />
-//           <button>tab navigation</button>
-//           <button>stays</button>
-//           <button>inside</button>
-//           <button>the modal</button>
-//         </form>
-//       </Modal>
-//     </div>
-//   );
-// } 
+export default function ImageModal({ openModal, closeModal, modalImage}) {
+   return (
+      <Modal 
+        className={css.modal}
+        overlayClassName={css.overlay}
+        isOpen={openModal}
+        onRequestClose={closeModal}
+        contentLabel="Image Big siza"
+      >
+       <img className={css.modalImg} src={modalImage} alt="regular" />
+      </Modal>
+  );
+} 
 
   
   

@@ -1,9 +1,13 @@
 .searchHeader {
+    position: fixed;
     display: flex;
+    top: 0;
     align-items: center;
     justify-content: center;
-    height: 60px;
+    height: 52px;
+    width: 100%;
     background-color: #542bdb;
+    box-shadow: 1px 1px 1px 1px #15074f4d;
 }
 
 .searchForm {

@@ -10,7 +10,7 @@ export default function SearchBar({ onSubmit }) {
     const keyWord = form.elements.keyWord.value;
 
     if (keyWord.trim() === "") {
-      toast("Enter some text to find images");
+      toast("Please, enter some text");
       return;
     }
 

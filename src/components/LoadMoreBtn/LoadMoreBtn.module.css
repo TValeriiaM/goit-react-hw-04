@@ -3,13 +3,10 @@
     height: 40px;
     color: #f0f8ff;
     font-size: 20px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: 0.04em;
     background-color: #542bdb;
-    border: 1px solid #0b0814;
-    border-radius: 2px;
+    box-shadow: 1px 1px 1px 1px rgba(35, 2, 2, 0.3);
+    border-radius: 4px;
+    border: none;
     margin: 24px auto;
     display: flex;
     justify-content: center;
